@@ -18,7 +18,7 @@ const ok = () => {
 const addedBookService = {
     description, price, serviceArea, photoURL, serviceImageUrl, serviceName, yourEmail, yourName
 }
-  fetch("https://backend-five-tau.vercel.app/addservice", {
+  fetch("http://localhost:5000/addservice", {
 method: "POST",
 headers: { "content-type" : "application/json"},
 body: JSON.stringify(addedBookService)

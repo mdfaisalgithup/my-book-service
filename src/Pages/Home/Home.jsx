@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
 const {userSee} = useContext(AuthContext)
@@ -8,10 +9,13 @@ const [dataService, setDataService] = useState([]);
 
 const [seeDataService, setSeeDataService] = useState(4)
 
+// http://localhost:5000
+// http://localhost:5000
+
 
 useEffect(() => {
 
-    fetch("https://backend-five-tau.vercel.app/dataservice")
+    fetch("http://localhost:5000/dataservice")
     .then(res => res.json())
     .then(data => setDataService(data))
 
@@ -69,7 +73,7 @@ return (
 </div>
 
 <div className="flex gap-x-2">
-    <span className="font-bold">Service Price:</span>
+    <span className="font-bold">Service Price:</span> 
   <h2 className="font-medium">${data?.price}</h2>  
 </div>
     

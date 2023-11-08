@@ -21,6 +21,7 @@ import Manage_Service from './Pages/Dashboard/Manage Service/Manage_Service';
 import AuthProvider from './AuthProvider/AuthProvider';
 import PrivateProvider from './PrivateProvider/PrivateProvider';
 import SingleService from './Pages/SingleService/SingleService';
+import Error404 from './Error404';
 
 
 
@@ -30,7 +31,7 @@ const router = createBrowserRouter(
   {
     path: "/",
     element: <RootMain></RootMain>,
-    errorElement: <h2>Error Pages Back</h2>,
+    errorElement: <Error404></Error404>,
     children: [
       {
         path: "/",
@@ -52,7 +53,7 @@ const router = createBrowserRouter(
     {
    path: "/single/:id",
    element:  <PrivateProvider><SingleService></SingleService></PrivateProvider>,
-   loader: ({params}) => fetch(`https://backend-five-tau.vercel.app/dataservice/${params.id}`)
+   loader: ({params}) => fetch(`http://localhost:5000/dataservice/${params.id}`)
     },
 
     {
@@ -68,7 +69,7 @@ const router = createBrowserRouter(
         {
           path: "manageservice", 
           element: <Manage_Service></Manage_Service>,
-          loader: () => fetch("https://backend-five-tau.vercel.app/alladdservice"),
+          loader: () => fetch("http://localhost:5000/alladdservice"),
          
       
         },
@@ -79,13 +80,13 @@ const router = createBrowserRouter(
             {
               path: "mybooking",
               element: <My_Booking></My_Booking>,
-              loader: () => fetch("https://backend-five-tau.vercel.app/alladdservicedata")
+              loader: () => fetch("http://localhost:5000/alladdservicedata")
 
              },
              {
               path: "pending",
               element: <Pending></Pending>,
-              loader: () => fetch("https://backend-five-tau.vercel.app/alladdservicedata")
+              loader: () => fetch("http://localhost:5000/alladdservicedata")
              }
         ]
         }

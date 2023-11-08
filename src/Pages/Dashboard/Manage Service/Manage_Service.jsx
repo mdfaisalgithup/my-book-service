@@ -16,7 +16,7 @@ const deleteBtn = (id) => {
     setdatadelete(id)
 const ids = {id}
 
-    fetch("https://backend-five-tau.vercel.app/deleteservice", {
+    fetch("http://localhost:5000/deleteservice", {
 
      method: "DELETE",
      headers: { "content-type" : "application/json"},
@@ -48,7 +48,7 @@ const description = form.description.value;
 const updateSer = {serviceName, id: update.id, yourName, yourEmail, price, serviceArea, serviceImageUrl, description}
 
 
-fetch("https://backend-five-tau.vercel.app/servicesupdated", {
+fetch("http://localhost:5000/servicesupdated", {
 
      method: "PATCH",
      headers: { "content-type" : "application/json"},

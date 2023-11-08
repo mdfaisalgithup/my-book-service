@@ -20,7 +20,7 @@ setSearchData(seachText)
 console.log(search)
 useEffect(() => {
   
-  fetch("https://backend-five-tau.vercel.app/alladdservice")
+  fetch("http://localhost:5000/alladdservice")
   .then(d => d.json())
   .then(s => setData(s))
 
