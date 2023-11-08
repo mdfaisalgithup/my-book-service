@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
-import { Typewriter } from "react-simple-typewriter";
+
 
 const Home = () => {
-const {userSee} = useContext(AuthContext)
+
 const [dataService, setDataService] = useState([]);
 
 const [seeDataService, setSeeDataService] = useState(4)
 
-// http://localhost:5000
+// https://backend-five-tau.vercel.app/
 // http://localhost:5000
 
 
