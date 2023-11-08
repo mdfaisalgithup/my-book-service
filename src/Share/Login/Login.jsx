@@ -49,7 +49,7 @@ const googleSign = () => {
     return (
 <div className="lg:mx-[100px] xl:mx-[240px] mx-[0px] my-[50px]">
 
-
+{/* .... */}
 
 <div className="xl:w-1/2 lg:w-1/2 w-full mx-auto shadow-md bg-[#25CCF7] rounded-md xl:p-20 lg:p-20 p-5">  
 <form onSubmit={loginUsers}>
