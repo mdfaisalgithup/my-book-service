@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 
-import React from 'react'
+
 import { Typewriter } from 'react-simple-typewriter'
+import Swal from "sweetalert2";
 
 const Home = () => {
 
@@ -33,7 +34,11 @@ useEffect(() => {
 }, [])
 
 
+const messageBox = (e) => {
+  e.preventDefault()
 
+  Swal.fire("Message Submit Successfully. Your Check Your email")
+}
 
     return (
         <div> 
@@ -201,14 +206,47 @@ return (
 
 
 </div>
+</div>
 
 
-
-  
+<div>
 </div>
 
 
 
+<div className="xl:mx-[240px] lg:mx-[100px] my-4 mx-[10px]">
+<div>
+
+<div className='App'>
+      <h1 className="text-center py-4 font-dosis font-bold" style={{ paddingTop: '4rem', margin: 'auto 0', fontWeight: 'normal' }}>
+      <span className="font-dosis font-bold"></span>{' '}
+        <span style={{ color: 'red', fontWeight: 'bold' }}>
+
+          <Typewriter
+            words={['Subscribe Now!']}
+            loop={5}
+            cursor
+            cursorStyle='|'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+         
+          />
+        </span>
+      </h1>
+    </div>
+
+
+<p className="text-center font-dosis font-normal">Write details about your book swap.</p>
+<form onSubmit={messageBox}>
+<div className="xl:w-1/2 lg:w-1/2 w-full mx-auto">
+<input className="border-[1px] rounded-md p-4 outline-none my-2 w-full" type="text" placeholder="Enter Your Email" name="email" />
+<textarea placeholder="Write Your Message" className="border-[1px] rounded-md outline-none p-4 my-2 w-full" name="message" cols="30" rows="10"></textarea>
+<input className="mx-auto block cursor-pointer px-6 rounded-md text-white bg-orange-500 py-2 font-dosis font-bold" type="submit" value="Send" />
+</div>
+</form>
+</div>
+</div>
 
 
 </div>
