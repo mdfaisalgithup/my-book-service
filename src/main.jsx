@@ -53,7 +53,7 @@ const router = createBrowserRouter(
     {
    path: "/single/:id",
    element:  <PrivateProvider><SingleService></SingleService></PrivateProvider>,
-   loader: ({params}) => fetch(`http://localhost:5000/dataservice/${params.id}`)
+   loader: ({params}) => fetch(`https://backend-five-tau.vercel.app/dataservice/${params.id}`)
     },
 
     {
@@ -69,7 +69,7 @@ const router = createBrowserRouter(
         {
           path: "manageservice", 
           element: <Manage_Service></Manage_Service>,
-          loader: () => fetch("http://localhost:5000/alladdservice"),
+          loader: () => fetch("https://backend-five-tau.vercel.app/alladdservice"),
          
       
         },
@@ -80,13 +80,13 @@ const router = createBrowserRouter(
             {
               path: "mybooking",
               element: <My_Booking></My_Booking>,
-              loader: () => fetch("http://localhost:5000/alladdservicedata")
+              loader: () => fetch("https://backend-five-tau.vercel.app/alladdservicedata")
 
              },
              {
               path: "pending",
               element: <Pending></Pending>,
-              loader: () => fetch("http://localhost:5000/alladdservicedata")
+              loader: () => fetch("https://backend-five-tau.vercel.app/alladdservicedata")
              }
         ]
         }

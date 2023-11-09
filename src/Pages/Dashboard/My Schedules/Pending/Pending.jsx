@@ -23,7 +23,7 @@ const statusInfo = form.statusInfo.value;
 const information = {statusInfo, id}
 
 
-fetch("http://localhost:5000/statusupdateded", {
+fetch("https://backend-five-tau.vercel.app/statusupdateded", {
 
 
 method: "PATCH",

@@ -59,7 +59,7 @@ const addServiceAllData = {
 }
 
 
-fetch("http://localhost:5000/", {
+fetch("https://backend-five-tau.vercel.app/", {
 headers: {"content-type" : "application/json"},
 method: "POST",
 body: JSON.stringify(addServiceAllData)

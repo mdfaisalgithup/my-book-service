@@ -21,13 +21,13 @@ const [dataService, setDataService] = useState([]);
 
 const [seeDataService, setSeeDataService] = useState(4)
 
-// http://localhost:5000/
-// http://localhost:5000
+// https://backend-five-tau.vercel.app/
+// https://backend-five-tau.vercel.app
 
 
 useEffect(() => {
 
-    fetch("http://localhost:5000/dataservice")
+    fetch("https://backend-five-tau.vercel.app/dataservice")
     .then(res => res.json())
     .then(data => setDataService(data))
 
@@ -168,7 +168,7 @@ return (
 
 
 <div className="w-full border-[1px] rounded-md p-4 font-dosis">
-<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/k8VdCQV/360-F-224869519-a-Rae-Lneq-ALf-PNBzg0xx-MZXghtv-BXkf-IA.jpg" alt=""/>
   <h2 className="text-center">Poland DAM</h2>
   <div className="justify-center flex">
   <AiOutlineStar className="text-orange-400"></AiOutlineStar>
@@ -181,7 +181,7 @@ return (
 
 
 <div className="w-full border-[1px] rounded-md p-4 font-dosis">
-<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/Ld9ZMjK/download.jpg" alt=""/>
   <h2 className="text-center">Dnald Sotom</h2>
   <div className="justify-center flex">
   <AiOutlineStar className="text-orange-400"></AiOutlineStar>
@@ -192,7 +192,7 @@ return (
 </div>
 
 <div className="w-full border-[1px] rounded-md p-4 font-dosis">
-<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/TRv6Qjr/images.jpg" alt=""/>
   <h2 className="text-center">Donald Jheen</h2>
   <div className="justify-center flex">
   <AiOutlineStar className="text-orange-400"></AiOutlineStar>
