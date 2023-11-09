@@ -85,7 +85,7 @@ body: JSON.stringify({id})
                             
 
                             
-                                <button onClick={data.status == "completed" ? null : () => conform(data._id)} className="bg-green-500 px-[10px] text-white font-bold rounded-md py-[4px]">{data.status ? data.status : "Conform"}</button>
+                                <button onClick={data.status == "pending" || data.status == "inprogress" || data.status == "completed" ? null : () => conform(data._id)} className="bg-green-500 px-[10px] text-white font-bold rounded-md py-[4px]">{data.status ? data.status : "Conform"}</button>
                             
 
                             <div>

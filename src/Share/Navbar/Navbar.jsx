@@ -24,7 +24,7 @@ const logOutgo = () => {
     return (
         <>
 
-<div className="flex xl:justify-between lg:justify-between xl:flex-row lg:flex-row flex-col items-center">
+<div className="flex xl:justify-between lg:justify-between xl:flex-row lg:flex-row flex-col items-center p-2">
 <div>
     <img className="w-[90px] shadow-md rounded-full" src="https://i.ibb.co/4FxhrJf/blank-book-on-circle-design-23.png" alt="logo" />
 </div>

@@ -40,7 +40,7 @@ body: JSON.stringify(information)
         <div>
             {/* <h2>Pending</h2> */}
             {
-                allData.filter(d => d.status == "confirmed").map(d => {
+                allData.filter(d => d.status == "pending" || d.status == "inprogress" || d.status == "completed" ? d.status : "pending").map(d => {
 
                     return (
                         <>
