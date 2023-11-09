@@ -137,15 +137,15 @@ return (
 
 <div>
 <img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
-  <h2>Jshon</h2>
+  <h2>Kol. Tom</h2>
   <AiOutlineStar></AiOutlineStar>
-  <p>Good Service!</p>
+  <p>Our Book many good, best service!</p>
 </div>
 
 
 <div>
 <img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
-  <h2>Jshon</h2>
+  <h2>Homder Don</h2>
   <AiOutlineStar></AiOutlineStar>
   <p>Enjoy book read and better service provide!</p>
 </div>
