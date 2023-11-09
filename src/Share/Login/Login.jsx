@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
@@ -9,6 +9,13 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const {loginUser, googleSignFun} = useContext(AuthContext)
+
+    const title = "Login"
+  const title_des = "Our Best Book Service worldWide"
+   useEffect(() => {
+    document.title=title + " - " + title_des
+   }, []);
+
 
 const loginUsers = (e) => {
     e.preventDefault()

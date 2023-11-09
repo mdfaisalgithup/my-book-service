@@ -9,6 +9,11 @@ const [data, setData] = useState([])
 const [search, setSearchData] = useState("");
 const [showAll, setShow] = useState(4);
 
+const title = "Service"
+const title_des = "Our Best Book Service worldWide"
+ useEffect(() => {
+  document.title=title + " - " + title_des
+ }, []);
 
 const searchBtn = (e) => {
   e.preventDefault()

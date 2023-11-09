@@ -1,14 +1,26 @@
+
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
 const Error404 = () => {
+    
+const error404 = "404"
+const errorNotFound = "Not Found"
+ useEffect(() => {
+  document.title=error404 + " - " + errorNotFound
+ }, []);
+
+    
+
+
     return (
         <div className="h-[100vh] flex justify-center items-center">
            <div>
-           <h2 className="font-dosis font-extrabold text-[80px] text-center">404</h2>
+           <h2 className="font-dosis font-extrabold text-[80px] text-center">{error404}</h2>
 
            <div>
-           <h2 className="font-extrabold font-dosis text-[30px] text-center">Not Found</h2>
+           <h2 className="font-extrabold font-dosis text-[30px] text-center">{errorNotFound}</h2>
            </div>
            <p>Make sure you have entered the correct URL. Typos or incorrect capitalization can lead to a 404 error.</p>
 

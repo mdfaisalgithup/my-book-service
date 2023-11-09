@@ -50,13 +50,17 @@ body: JSON.stringify(information)
 
 
 
-<form onSubmit={chnageStatus}><label htmlFor="statusInfo">Status:</label> 
-<select name="statusInfo" id="statusInfo">
-    <option value="pending">{d.status == "pending" || d.status == "inprogress" || d.status == "completed" ? d.status : "pending"  }</option>
+<form onSubmit={chnageStatus}>
+
+    <div className="border-[1px] px-[5px] py-[5px] w-max ">
+    <label htmlFor="statusInfo">Status:</label> 
+<select className="outline-none" name="statusInfo" id="statusInfo">
+  <option value="pending">{d.status == "pending" || d.status == "inprogress" || d.status == "completed" ? d.status : "pending"  }</option>
   <option value="pending">Pending</option>
   <option value="inprogress">In Progress</option>
   <option value="completed">Completed</option>
 </select>
+    </div>
 
 <div className="my-2">
 <input onClick={() => setId(d._id)} className="bg-orange-500 hover:bg-orange-600 px-5 cursor-pointer py-2 font-dosis font-bold text-white rounded-md" type="submit" value="Update Status" />

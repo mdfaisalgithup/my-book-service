@@ -1,5 +1,5 @@
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { getAuth, updateProfile } from "firebase/auth";
@@ -7,6 +7,11 @@ import app from "../../firebase/firebase.config";
 import Swal from "sweetalert2";
 const auth = getAuth(app)
 const Registration = () => {
+  const title = "Registration"
+  const title_des = "Our Best Book Service worldWide"
+   useEffect(() => {
+    document.title=title + " - " + title_des
+   }, []);
     
     const {Register} = useContext(AuthContext);
 

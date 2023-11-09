@@ -5,6 +5,14 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
 
+  const title = "MyBookSwap"
+  const title_des = "Our Best Book Service worldWide"
+   useEffect(() => {
+    document.title=title + " - " + title_des
+   }, []);
+
+  
+
 const [dataService, setDataService] = useState([]);
 
 const [seeDataService, setSeeDataService] = useState(4)
