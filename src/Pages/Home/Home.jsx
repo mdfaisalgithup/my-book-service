@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 
+import React from 'react'
+import { Typewriter } from 'react-simple-typewriter'
+
 const Home = () => {
 
   const title = "MyBookSwap"
@@ -28,6 +31,8 @@ useEffect(() => {
     .then(data => setDataService(data))
 
 }, [])
+
+
 
 
     return (
@@ -109,9 +114,6 @@ return (
 
 
   })
-
-
-
 }
 
 
@@ -124,38 +126,80 @@ return (
 </div>
 
 
-<div className="mx-[240px]">
+<div className="xl:mx-[240px] lg:mx-[150px] md:mx-[50px] mx-[10px] my-10">
 
-<h2>Customer Review</h2>
-<div>
-<div>
-<img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
-  <h2>Jshon</h2>
+<h2 className="text-center my-4 font-bold"></h2>
+<div className='App'>
+      <h1 className="text-center py-4 font-dosis font-bold" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
+      <span className="font-dosis font-bold">Customer Review</span>{' '}
+        <span style={{ color: 'red', fontWeight: 'bold' }}>
+
+          <Typewriter
+            words={['Jshon', 'Poland DAM', 'Dnald Sotom', 'Donald Jheen']}
+            loop={5}
+            cursor
+            cursorStyle='|'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+         
+          />
+        </span>
+      </h1>
+    </div>
+<div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+
+
+<div className="w-full border-[1px] rounded-md p-4 font-dosis">
+<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+  <h2 className="text-center">Jshon</h2>
+  <div className="justify-center flex">
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
   <AiOutlineStar></AiOutlineStar>
-  <p>Good Service!</p>
+  </div>
+  <p className="text-center ">Good Service!</p>
 </div>
 
-<div>
-<img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
-  <h2>Kol. Tom</h2>
-  <AiOutlineStar></AiOutlineStar>
-  <p>Our Book many good, best service!</p>
+
+<div className="w-full border-[1px] rounded-md p-4 font-dosis">
+<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+  <h2 className="text-center">Poland DAM</h2>
+  <div className="justify-center flex">
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
+ <AiOutlineStar className="text-orange-400"></AiOutlineStar>
+
+  </div>
+  <p className="text-center ">Awesome Service and Best Service</p>
 </div>
 
 
-<div>
-<img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
-  <h2>Homder Don</h2>
+<div className="w-full border-[1px] rounded-md p-4 font-dosis">
+<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+  <h2 className="text-center">Dnald Sotom</h2>
+  <div className="justify-center flex">
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
   <AiOutlineStar></AiOutlineStar>
-  <p>Enjoy book read and better service provide!</p>
+  </div>
+  <p className="text-center ">Awesome service, excellent!</p>
 </div>
 
-<div>
-<img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
-  <h2>Donald</h2>
-  <AiOutlineStar></AiOutlineStar>
-  <p>AweSome book Service, Gooood!</p>
+<div className="w-full border-[1px] rounded-md p-4 font-dosis">
+<img className="w-[50px] mx-auto object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+  <h2 className="text-center">Donald Jheen</h2>
+  <div className="justify-center flex">
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
+  <AiOutlineStar className="text-orange-400"></AiOutlineStar>
+  </div>
+  <p className="text-center ">Enjoy Book!! Besr Service</p>
 </div>
+
+
+
+
 </div>
 
 
