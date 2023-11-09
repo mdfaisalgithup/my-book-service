@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const Pending = () => {
 
-    const [id, setId] = useState()
-
+const [id, setId] = useState()
 const allData = useLoaderData()
+
+const title = "Pending"
+const title_des = "Our Best Book Service worldWide"
+ useEffect(() => {
+  document.title=title + " - " + title_des
+ }, []);
+
 const chnageStatus = (e) => {
 
 e.preventDefault();
@@ -44,7 +50,7 @@ body: JSON.stringify(information)
 
                     return (
                         <>
-  <div className="border-2 p-5 m-4 rounded-md">
+  <div key={d._id} className="border-2 p-5 m-4 rounded-md">
 <h2>{d.serviceName}</h2>
 
 

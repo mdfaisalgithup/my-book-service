@@ -7,13 +7,11 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Navbar = () => {
 
 const {userSee, logOut} = useContext(AuthContext)
-console.log(userSee)
+
 const logOutgo = () => {
 
     logOut()
-    .then(res => {
-        console.log(res)
-    })
+    .then()
     .catch()
 
 }

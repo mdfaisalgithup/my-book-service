@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
-
+import { AiOutlineStar } from "react-icons/ai";
 
 const Home = () => {
 
@@ -29,7 +29,7 @@ useEffect(() => {
 
 }, [])
 
-console.log(dataService)
+
     return (
         <div> 
 
@@ -68,10 +68,10 @@ return (
     
 
 
-<div className="w-full rounded-md border-2 p-4">
+<div key={data._id} className="w-full rounded-md border-2 p-4">
     <img className="w-full rounded-md h-[400px]" src={data?.serviceImageUrl} alt="" />
  <div className="m-2 space-y-4">
-    <h2 className="font-dosis font-semibold">Service Name: {data?.serviceName.split(" ").slice(0, 3).map(d => d)}</h2>
+    <h2 className="font-dosis font-semibold">Service Name: {data?.serviceName?.split(" ").slice(0, 3).map(d => d)}</h2>
 <div>
 
 <div>
@@ -85,7 +85,7 @@ return (
   <h2 className="font-medium">${data?.price}</h2>  
 </div>
     
-<Link to={`/single/${data._id}`}><button className="bg-orange-500 px-6 py-2  font-dosis font-bold block mx-auto text-white rounded-md hover:bg-orange-600">View Detail</button></Link>
+<Link to={`/single/${data?._id}`}><button className="bg-orange-500 px-6 py-2  font-dosis font-bold block mx-auto text-white rounded-md hover:bg-orange-600">View Detail</button></Link>
 
  </div>
 
@@ -124,7 +124,44 @@ return (
 </div>
 
 
+<div className="mx-[240px]">
 
+<h2>Customer Review</h2>
+<div>
+<div>
+<img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+  <h2>Jshon</h2>
+  <AiOutlineStar></AiOutlineStar>
+  <p>Good Service!</p>
+</div>
+
+<div>
+<img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+  <h2>Jshon</h2>
+  <AiOutlineStar></AiOutlineStar>
+  <p>Good Service!</p>
+</div>
+
+
+<div>
+<img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+  <h2>Jshon</h2>
+  <AiOutlineStar></AiOutlineStar>
+  <p>Enjoy book read and better service provide!</p>
+</div>
+
+<div>
+<img className="w-[50px] object-cover h-[50px] rounded-full" src="https://i.ibb.co/Z8G7K50/istockphoto-1485546774-170667a.webp" alt=""/>
+  <h2>Donald</h2>
+  <AiOutlineStar></AiOutlineStar>
+  <p>AweSome book Service, Gooood!</p>
+</div>
+</div>
+
+
+
+  
+</div>
 
 
 

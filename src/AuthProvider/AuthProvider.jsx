@@ -44,7 +44,7 @@ useEffect(() => {
 
     setLoading(false)
             setUser(currentUser)
-            console.log("auth changed", currentUser)
+          
         
            
 

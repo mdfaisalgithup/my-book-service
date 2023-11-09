@@ -1,10 +1,16 @@
 
+import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const My_Booking = () => {
 
+    const title = "My Booking"
+    const title_des = "Our Best Book Service worldWide"
+     useEffect(() => {
+      document.title=title + " - " + title_des
+     }, []);
 
 const mybook = useLoaderData()
 
@@ -78,7 +84,7 @@ body: JSON.stringify({id})
                         return(
                             <>
                             
-                            <div className="border-[1px] rounded-md p-4 m-4">     
+                            <div key={data._id} className="border-[1px] rounded-md p-4 m-4">     
                             <h2>{data.serviceName}</h2>
                             <div className="flex justify-center gap-2">
 

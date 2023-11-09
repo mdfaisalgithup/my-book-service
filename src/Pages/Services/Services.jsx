@@ -22,7 +22,7 @@ const seachText = form.search.value;
 setSearchData(seachText)
 
 }
-console.log(search)
+
 useEffect(() => {
   
   fetch("http://localhost:5000/alladdservice")
@@ -65,7 +65,7 @@ return (
     
 
 
-<div className="w-full rounded-md border-2 p-4">
+<div key={all._id} className="w-full rounded-md border-2 p-4">
     <img className="w-full rounded-md h-[400px]" src={all?.serviceImageUrl} alt="" />
  <div className="m-2 space-y-4">
     <h2 className="font-dosis font-semibold">Service Name: {all?.serviceName && all?.serviceName.split(" ").slice(0, 3).map(d => d)}</h2>
