@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -6,6 +6,12 @@ import Swal from "sweetalert2";
 
 const Add_Service = () => {
 
+
+    const title = "Add Service"
+    const title_des = "Our Best Book Service worldWide"
+     useEffect(() => {
+      document.title=title + " - " + title_des
+     }, []);
 
     const {userSee} = useContext(AuthContext)
 

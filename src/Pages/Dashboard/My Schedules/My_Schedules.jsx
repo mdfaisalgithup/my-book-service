@@ -4,7 +4,14 @@ import "./My_Schedules.css"
 
 import { AiOutlineShopping } from "react-icons/ai";
 import { MdOutlinePendingActions } from "react-icons/md";
+import { useEffect } from "react";
 const My_Schedules = () => {
+
+    const title = "My Sch Service"
+    const title_des = "Our Best Book Service worldWide"
+     useEffect(() => {
+      document.title=title + " - " + title_des
+     }, []);
     return (
         <div>
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -7,8 +7,12 @@ const Manage_Service = () => {
 const [datadelete, setdatadelete] = useState([])
 const [update, setUpdate] = useState() 
 const manageServiceAdd = useLoaderData()
-console.log(update)
 
+const title = "Manage Service"
+const title_des = "Our Best Book Service worldWide"
+ useEffect(() => {
+  document.title=title + " - " + title_des
+ }, []);
 
 
 const deleteBtn = (id) => {

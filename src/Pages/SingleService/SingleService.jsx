@@ -1,10 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const SingleService = () => {
+
+  const title = "Single"
+  const title_des = "Our Best Book Service worldWide"
+   useEffect(() => {
+    document.title=title + " - " + title_des
+   }, []);
 
     const {userSee} = useContext(AuthContext)
 
