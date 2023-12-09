@@ -13,5 +13,5 @@
 
 - Your personal information and reading preferences are handled with the utmost care. We're committed to maintaining your data security and privacy. With our "Stay Logged In" feature, you can enjoy uninterrupted access to your account, making the process of accessing your favorite books quick and straightforward.
 
-  #### Technology use:
-   - Html, css Javascript, React, Express, Monogodb, Firebase
+#### Technology use:
+- Html, css Javascript, React, Express, Monogodb, Firebase
