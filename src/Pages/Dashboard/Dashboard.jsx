@@ -30,7 +30,7 @@ const Dashboard = () => {
 <div className="flex flex-col xl:w-1/4 lg:w-1/4 w-full border-r-[1px]">
 
 
-<NavLink to="addservice">
+<NavLink to="/dashboard">
 <div className="flex items-center rounded-tl-md gap-x-4 border-b-[1px] hover:bg-orange-400 p-5 hover:text-white">
   <BsPencilSquare className="text-[18px]"></BsPencilSquare>  
 <h2>Add Service</h2>

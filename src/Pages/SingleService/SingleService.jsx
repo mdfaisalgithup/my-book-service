@@ -24,7 +24,7 @@ const ok = () => {
 const addedBookService = {
     description, price, serviceArea, photoURL, serviceImageUrl, serviceName, yourEmail, yourName
 }
-  fetch("https://backend-five-tau.vercel.app/addservice", {
+  fetch("https://my-book-service.vercel.app/addservice", {
 method: "POST",
 headers: { "content-type" : "application/json"},
 body: JSON.stringify(addedBookService)
@@ -102,8 +102,8 @@ const addBook = () => {
 
 
     return (
-        <div className="mx-[240px] my-10">
-            <div className="w-1/2 mx-auto border-[1px] rounded-md">
+        <div className="xl:mx-[240px] lg:mx-[100px] md:mx-[50px] mx-[10px] my-10">
+            <div className="xl:w-1/2 lg:w-[70%] mx-auto border-[1px] rounded-md">
                 <img className="w-[250px] rounded-[20px] mx-auto p-2" src={serviceImageUrl} alt="" />
 
 

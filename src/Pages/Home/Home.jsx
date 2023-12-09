@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 
 
@@ -8,6 +8,7 @@ import { Typewriter } from 'react-simple-typewriter'
 import Swal from "sweetalert2";
 
 const Home = () => {
+
 
   const title = "MyBookSwap"
   const title_des = "Our Best Book Service worldWide"
@@ -17,21 +18,24 @@ const Home = () => {
 
   
 
-const [dataService, setDataService] = useState([]);
-
-const [seeDataService, setSeeDataService] = useState(4)
-
-// https://backend-five-tau.vercel.app/
-// https://backend-five-tau.vercel.app
+// const [dataService, setDataService] = useState([]);
+const [seeDataService, setSeeDataService] = useState(4);
 
 
-useEffect(() => {
+// https://my-book-service.vercel.app/
+// https://my-book-service.vercel.app
 
-    fetch("https://backend-five-tau.vercel.app/dataservice")
-    .then(res => res.json())
-    .then(data => setDataService(data))
+const dataService = useLoaderData();
 
-}, [])
+// console.log(datas)
+
+// useEffect(() => {
+
+//     fetch("https://my-book-service.vercel.app/dataservice")
+//     .then(res => res.json())
+//     .then(data => setDataService(data))
+
+// }, [])
 
 
 const messageBox = (e) => {
@@ -40,11 +44,14 @@ const messageBox = (e) => {
   Swal.fire("Message Submit Successfully. Your Check Your email")
 }
 
+
+
+
     return (
         <div> 
 
       
-      <div className="relative bg-[#f5f5f5]">
+       <div className="relative bg-[#f5f5f5]">
       <img className="w-full opacity-20 xl:h-[800px] lg:h-[600px] md:h-[600px] h-[500px]" src="https://i.ibb.co/k3Q2gq8/Book-Mockup.jpg" alt="banner" />
 
 
@@ -70,18 +77,16 @@ const messageBox = (e) => {
 <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-[20px] xl:w-1/2 mx-auto">
 
 {
-  dataService.slice(0, seeDataService).map(data => {
 
+ dataService?.slice(0, seeDataService)?.map(data => {
 
 return (
     <>
-    
 
-
-<div key={data._id} className="w-full rounded-md border-2 p-4">
+<div key={data?._id} className="w-full rounded-md border-2 p-4">
     <img className="w-full rounded-md h-[400px]" src={data?.serviceImageUrl} alt="" />
  <div className="m-2 space-y-4">
-    <h2 className="font-dosis font-semibold">Service Name: {data?.serviceName?.split(" ").slice(0, 3).map(d => d)}</h2>
+    <h2 className="font-dosis font-semibold">Service Name: {data?.serviceName}</h2>
 <div>
 
 <div>
@@ -119,6 +124,8 @@ return (
 
 
   })
+
+
 }
 
 
@@ -133,11 +140,11 @@ return (
 
 <div className="xl:mx-[240px] lg:mx-[150px] md:mx-[50px] mx-[10px] my-10">
 
-<h2 className="text-center my-4 font-bold"></h2>
+
 <div className='App'>
-      <h1 className="text-center py-4 font-dosis font-bold" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
+      <h1 className="text-center font-dosis font-bold py-6">
       <span className="font-dosis font-bold">Customer Review</span>{' '}
-        <span style={{ color: 'red', fontWeight: 'bold' }}>
+        <span style={{ color: '#F97316', fontWeight: 'bold' }}>
 
           <Typewriter
             words={['Jshon', 'Poland DAM', 'Dnald Sotom', 'Donald Jheen']}
@@ -152,6 +159,7 @@ return (
         </span>
       </h1>
     </div>
+
 <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
 
 
@@ -202,9 +210,6 @@ return (
   <p className="text-center ">Enjoy Book!! Besr Service</p>
 </div>
 
-
-
-
 </div>
 </div>
 
@@ -212,18 +217,16 @@ return (
 <div>
 </div>
 
-
-
-<div className="xl:mx-[240px] lg:mx-[100px] my-4 mx-[10px]">
+<div className="xl:mx-[240px] lg:mx-[100px] py-8 mx-[10px]">
 <div>
 
 <div className='App'>
-      <h1 className="text-center py-4 font-dosis font-bold" style={{ paddingTop: '4rem', margin: 'auto 0', fontWeight: 'normal' }}>
+      <h1 className="text-center font-dosis font-bold" style={{ paddingTop: '0rem', margin: 'auto 0', fontWeight: 'normal' }}>
       <span className="font-dosis font-bold"></span>{' '}
-        <span style={{ color: 'red', fontWeight: 'bold' }}>
+        <span style={{ color: '#F97316', fontWeight: 'bold' }}>
 
           <Typewriter
-            words={['Subscribe Now!']}
+            words={['Write details about your book swap...']}
             loop={5}
             cursor
             cursorStyle='|'
@@ -234,10 +237,9 @@ return (
           />
         </span>
       </h1>
+      
     </div>
 
-
-<p className="text-center font-dosis font-normal">Write details about your book swap.</p>
 <form onSubmit={messageBox}>
 <div className="xl:w-1/2 lg:w-1/2 w-full mx-auto">
 <input className="border-[1px] rounded-md p-4 outline-none my-2 w-full" type="text" placeholder="Enter Your Email" name="email" />

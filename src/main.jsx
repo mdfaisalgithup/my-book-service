@@ -24,6 +24,7 @@ import SingleService from './Pages/SingleService/SingleService';
 import Error404 from './Error404';
 
 
+// https://my-book-service.vercel.app/
 
 const router = createBrowserRouter(
   
@@ -35,11 +36,13 @@ const router = createBrowserRouter(
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch("https://my-book-service.vercel.app/dataservice")
       },
     {
       path: "/service",
-      element: <Services></Services>
+      element: <Services></Services>,
+       loader: () => fetch("https://my-book-service.vercel.app/alladdservice")
     },
 
     {
@@ -53,7 +56,7 @@ const router = createBrowserRouter(
     {
    path: "/single/:id",
    element:  <PrivateProvider><SingleService></SingleService></PrivateProvider>,
-   loader: ({params}) => fetch(`https://backend-five-tau.vercel.app/dataservice/${params.id}`)
+   loader: ({params}) => fetch(`https://my-book-service.vercel.app/dataservice/${params.id}`)
     },
 
     {
@@ -61,7 +64,7 @@ const router = createBrowserRouter(
       element:<PrivateProvider> <Dashboard></Dashboard> </PrivateProvider>,
       children: [
         {
-          path: "addservice", 
+          path: "/dashboard", 
           element: <Add_Service></Add_Service>
         
         },
@@ -69,7 +72,7 @@ const router = createBrowserRouter(
         {
           path: "manageservice", 
           element: <Manage_Service></Manage_Service>,
-          loader: () => fetch("https://backend-five-tau.vercel.app/alladdservice"),
+          loader: () => fetch("https://my-book-service.vercel.app/alladdservice"),
          
       
         },
@@ -80,13 +83,13 @@ const router = createBrowserRouter(
             {
               path: "mybooking",
               element: <My_Booking></My_Booking>,
-              loader: () => fetch("https://backend-five-tau.vercel.app/alladdservicedata")
+              loader: () => fetch("https://my-book-service.vercel.app/alladdservicedata")
 
              },
              {
               path: "pending",
               element: <Pending></Pending>,
-              loader: () => fetch("https://backend-five-tau.vercel.app/alladdservicedata")
+              loader: () => fetch("https://my-book-service.vercel.app/alladdservicedata")
              }
         ]
         }

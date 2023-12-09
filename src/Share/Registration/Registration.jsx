@@ -44,6 +44,7 @@ const Registration = () => {
         })
         .then(() => {
             Swal.fire("Create register Successfully.")
+            console.log(res.user)
         })
         .catch(error =>  Swal.fire(error))
       }

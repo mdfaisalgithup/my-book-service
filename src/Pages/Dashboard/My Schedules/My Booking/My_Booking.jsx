@@ -23,7 +23,7 @@ const conform = (id) => {
 
 
   // somealladdservicedata
-  fetch("https://backend-five-tau.vercel.app/somealladdservicedata", {
+  fetch("https://my-book-service.vercel.app/somealladdservicedata", {
 
     method: "PATCH",
     headers: {"content-type" : "application/json"},
@@ -51,7 +51,7 @@ const conform = (id) => {
 
 
 
-fetch("https://backend-five-tau.vercel.app/bookingdelete", {
+fetch("https://my-book-service.vercel.app/bookingdelete", {
 
 method: "DELETE",
 headers: {"content-type" : "application/json"},

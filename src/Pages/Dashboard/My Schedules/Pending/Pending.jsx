@@ -23,7 +23,7 @@ const statusInfo = form.statusInfo.value;
 const information = {statusInfo, id}
 
 
-fetch("https://backend-five-tau.vercel.app/statusupdateded", {
+fetch("https://my-book-service.vercel.app/statusupdateded", {
 
 
 method: "PATCH",
@@ -46,12 +46,12 @@ body: JSON.stringify(information)
         <div>
             {/* <h2>Pending</h2> */}
             {
-                allData.filter(d => d.status == "pending" || d.status == "inprogress" || d.status == "completed" ? d.status : "pending").map(d => {
+                allData.filter(d => d.status == "pending" || d.status == "confirmed" || d.status == "inprogress" || d.status == "completed" && d.status).map(d => {
 
                     return (
                         <>
-  <div key={d._id} className="border-2 p-5 m-4 rounded-md">
-<h2>{d.serviceName}</h2>
+                   <div key={d._id} className="border-2 p-5 m-4 rounded-md">
+                        <h2>{d.serviceName}</h2>
 
 
 

@@ -1,12 +1,30 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import Swal from "sweetalert2";
 
 
 const Manage_Service = () => {
-const [datadelete, setdatadelete] = useState([])
+const navigate = useNavigate()
+const loacation = useLocation()
 const [update, setUpdate] = useState() 
-const manageServiceAdd = useLoaderData()
+
+const [deletesee, setdelete] = useState()
+
+const [manageServiceAdd, setmanageServiceAdd] = useState([])
+
+// const manageServiceAdd = useLoaderData()
+
+// https://my-book-service.vercel.app/
+const url = "https://my-book-service.vercel.app/alladdservice";
+
+useEffect(() => {
+    fetch(url)
+    .then(res => res.json())
+    .then(data => setmanageServiceAdd(data))
+}, [update, deletesee])
+
+
 
 const title = "Manage Service"
 const title_des = "Our Best Book Service worldWide"
@@ -16,21 +34,43 @@ const title_des = "Our Best Book Service worldWide"
 
 
 const deleteBtn = (id) => {
+  
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          
+          
+            fetch(`https://my-book-service.vercel.app/deleteservice/${id}`, {
 
-    setdatadelete(id)
-const ids = {id}
-
-    fetch("https://backend-five-tau.vercel.app/deleteservice", {
-
-     method: "DELETE",
-     headers: { "content-type" : "application/json"},
-     body: JSON.stringify(ids)
-
+     method: "DELETE"
     })
     .then(res => res.json())
-    .then(() => {
-       Swal.fire("Deleted Service Successfully.")
+    .then((d) => {
+       if(d.deletedCount > 0){
+
+        // const reaming = manageServiceAdd.filter(booking => booking._id !== id)  
+
+        // setmanageServiceAdd(reaming)
+        setdelete(true)
+     
+       }
+
+    
+     
+
     })
+        }
+      });
+
+
+    
 }
 
 const updateServices = (e) => {
@@ -51,8 +91,20 @@ const description = form.description.value;
 // updated
 const updateSer = {serviceName, id: update.id, yourName, yourEmail, price, serviceArea, serviceImageUrl, description}
 
+console.log(update.id)
 
-fetch("https://backend-five-tau.vercel.app/servicesupdated", {
+Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      
+fetch("https://my-book-service.vercel.app/servicesupdated", {
 
      method: "PATCH",
      headers: { "content-type" : "application/json"},
@@ -60,24 +112,43 @@ fetch("https://backend-five-tau.vercel.app/servicesupdated", {
 
     })
     .then(res => res.json())
-    .then(show => {
+    .then(() => {
 
-        if(show){
+      
 
-        Swal.fire("Update Information Successfully.")
-        }
+    
+
+
+
+        const reamings = manageServiceAdd.filter(d => d._id !== update.id)
+        const updates = manageServiceAdd.find(d => d._id == update.id)
+        updates.yourEmail
+        
+         setmanageServiceAdd([updates, ...reamings])
+        
+        
+// console.log([[updates], ...reamings])
+
+
        
     })
 
+    setUpdate(false)
+        
+    }
+
+   setUpdate(false)
+
+  });
+
+
+
+
 
 }
 
 
-const back = () => {
 
-  setUpdate(false)
-
-}
     
     return (
 
@@ -142,8 +213,10 @@ const back = () => {
 
 </form>
 
-<button onClick={back} className="bg-orange-500 px-6 py-2 font-bold">Back</button>
+{
 
+    update == false && navigate(loacation.pathname)
+}
 
 </div>
     </div>
@@ -152,7 +225,7 @@ const back = () => {
         : <div>
         <h2 className="text-center font-dosis font-bold my-4">Manage Service Updated</h2>
                     {
-                        manageServiceAdd.filter(d => d._id !== datadelete).map(manageService => {
+                        manageServiceAdd.map(manageService => {
         
         
                             return (

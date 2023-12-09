@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 
 
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const Services = () => {
-const [data, setData] = useState([])
-const [search, setSearchData] = useState("");
-const [showAll, setShow] = useState(4);
+// const [data, setData] = useState([])
+const [search, setSearch] = useState("")
+const [dataShow, setDataShow] = useState(4)
+
+
+
 
 const title = "Service"
 const title_des = "Our Best Book Service worldWide"
@@ -18,21 +21,24 @@ const title_des = "Our Best Book Service worldWide"
 const searchBtn = (e) => {
   e.preventDefault()
 const form = e.target;
-const seachText = form.search.value;
-setSearchData(seachText)
+const searchtext = form.search.value;
+setSearch(searchtext.toLowerCase())
 
 }
 
-useEffect(() => {
+
+const data = useLoaderData()
+// useEffect(() => {
   
-  fetch("https://backend-five-tau.vercel.app/alladdservice")
-  .then(d => d.json())
-  .then(s => setData(s))
+//   fetch("https://my-book-service.vercel.app/alladdservice")
+//   .then(d => d.json())
+//   .then(s => setData(s))
 
-}, [showAll])
+// }, [])
 
+console.log(data)
 
-
+const d = data.filter(d => d.serviceName.toLowerCase().includes(search)).slice(0, dataShow)
 
 
 
@@ -52,60 +58,64 @@ useEffect(() => {
         </div>
       
 
-        <div className="lg:mx-[140px] xl:mx-[240px] md:mx-[50px] mx-[10px] my-8">
+ <div className="lg:mx-[140px] xl:mx-[240px] md:mx-[50px] mx-[10px] my-8">
 <div><h2 className="text-center font-dosis text-[20px] font-bold mb-2">Swap-Read-Enjoy </h2></div>
+
+
 <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-[20px] xl:w-1/2 mx-auto">
 
+
 {
-            data.filter((dataAll) => search == "" ? dataAll : dataAll.serviceName.toLowerCase().includes(search.toLowerCase())).slice(0, showAll).map(all => {
+ d.map(all => {
 
-
-return (
-    <>
+    return (
+        <>
+        
+  
+    <div key={all._id} className="w-full rounded-md border-2 p-4">
+        <img className="w-full rounded-md h-[400px]" src={all?.serviceImageUrl} alt="" />
+     <div className="m-2 space-y-4">
+        <h2 className="font-dosis font-semibold">Service Name: {all?.serviceName}</h2>
+    <div>
     
-
-
-<div key={all._id} className="w-full rounded-md border-2 p-4">
-    <img className="w-full rounded-md h-[400px]" src={all?.serviceImageUrl} alt="" />
- <div className="m-2 space-y-4">
-    <h2 className="font-dosis font-semibold">Service Name: {all?.serviceName && all?.serviceName.split(" ").slice(0, 3).map(d => d)}</h2>
-<div>
-
-<div>
-<p><span className="font-dosis font-bold">Description: </span> <span className="text-[15px]">{all?.description.length > 100 ? all?.description.slice(0, 100) + "..." : all?.description}</span></p>
-</div>
-
-</div>
-
-<div className="flex gap-x-2">
-    <span className="font-bold">Service Price:</span>
-  <h2 className="font-medium">${all?.price}</h2>  
-</div>
+    <div>
+    <p><span className="font-dosis font-bold">Description: </span> <span className="text-[15px]">{all?.description.length > 100 ? all?.description.slice(0, 100) + "..." : all?.description}</span></p>
+    </div>
     
-<Link to={`/single/${all._id}`}><button className="bg-orange-500 px-6 py-2  font-dosis font-bold block mx-auto text-white rounded-md hover:bg-orange-600">View Detail</button></Link>
-
- </div>
-
-<div className="flex gap-x-2 items-center justify-center mt-6">
-<h2 className="font-dosis font-semibold">Service Provider:</h2>
- <div className="flex gap-x-1 items-center border-[1px] rounded-full  py-[1px]">
-    <h2 className="font-dosis font-medium text-black mx-2">{ all?.yourName}</h2>
-    <img className="w-[30px] rounded-full" src={all?.photoURL} alt="" />
- </div></div>
-
-
-
-</div>
-
-
-
+    </div>
+    
+    <div className="flex gap-x-2">
+        <span className="font-bold">Service Price:</span>
+      <h2 className="font-medium">${all?.price}</h2>  
+    </div>
+        
+    <Link to={`/single/${all._id}`}><button className="bg-orange-500 px-6 py-2  font-dosis font-bold block mx-auto text-white rounded-md hover:bg-orange-600">View Detail</button></Link>
+    
+     </div>
+    
+    <div className="flex gap-x-2 items-center justify-center mt-6">
+    <h2 className="font-dosis font-semibold">Service Provider:</h2>
+     <div className="flex gap-x-1 items-center border-[1px] rounded-full  py-[1px]">
+        <h2 className="font-dosis font-medium text-black mx-2">{ all?.yourName}</h2>
+        <img className="w-[30px] rounded-full" src={all?.photoURL} alt="" />
+     </div></div>
     
     
-    </>
-)
-
-
-  })
+    
+    </div>
+   
+    
+    
+    
+        
+        
+        </>
+    )
+   
+    
+      }) 
+      
+ 
 
 
 
@@ -114,7 +124,7 @@ return (
 
 </div>
 
-   <button className={`bg-orange-400 text-white rounded-md hover:bg-orange-600 block mx-auto px-6 py-2 font-dosis font-bold ${data.length == showAll && "hidden"}`} onClick={() => setShow(data.length)}>Show All</button>
+   <button onClick={() => setDataShow(data.length)} className={`bg-orange-400 text-white rounded-md hover:bg-orange-600 block mx-auto px-6 py-2 font-dosis font-bold ${dataShow == data.length && 'hidden'}`}>Show All</button>
 
 </div>
       

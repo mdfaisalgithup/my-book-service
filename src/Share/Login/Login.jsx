@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 import { FcGoogle } from "react-icons/fc";
@@ -9,6 +9,11 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const {loginUser, googleSignFun} = useContext(AuthContext)
+const see = useLocation()
+const navigates = useNavigate()
+
+console.log(see.state)
+
 
     const title = "Login"
   const title_des = "Our Best Book Service worldWide"
@@ -35,7 +40,11 @@ if(!password){
 
 
 loginUser(email, password)
-.then()
+.then(() => {
+   
+    navigates(see?.state ? see?.state : "/")
+
+})
 .catch(error => {
 
 Swal.fire(error.message)
@@ -46,7 +55,10 @@ Swal.fire(error.message)
 
 const googleSign = () => {
     googleSignFun()
-    .then()
+    .then(() => {
+
+        navigates(see?.state ? see?.state : "/")
+    })
     .catch()
   
 }

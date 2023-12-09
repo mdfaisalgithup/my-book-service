@@ -5,6 +5,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 
 
+
 export const AuthContext = createContext();
 
 const auth = getAuth(app)
@@ -43,10 +44,10 @@ useEffect(() => {
  const currentU = onAuthStateChanged(auth, currentUser => {
 
     setLoading(false)
-            setUser(currentUser)
-          
-        
-           
+
+     setUser(currentUser)
+     
+      
 
     })
 
