@@ -12,3 +12,6 @@
 - For added convenience, you can opt to stay logged in on your trusted devices. No need to enter your credentials repeatedly, making your reading experience even smoother. Tell us what kind of books you love. Share your favorite genres, authors, and titles, helping us connect you with fellow readers who share your literary interests.
 
 - Your personal information and reading preferences are handled with the utmost care. We're committed to maintaining your data security and privacy. With our "Stay Logged In" feature, you can enjoy uninterrupted access to your account, making the process of accessing your favorite books quick and straightforward.
+
+  #### Technology use:
+   - Html, css Javascript, React, Express, Monogodb, Firebase
